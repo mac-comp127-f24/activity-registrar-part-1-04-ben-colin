@@ -1,6 +1,7 @@
 package registrar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ public class Student {
      * Returns all courses this student is currently enrolled in.
      */
     public List<Course> getCourses() {
-        return courses;
+        return Collections.unmodifiableList(courses);
     }
 
     /**

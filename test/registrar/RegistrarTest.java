@@ -74,6 +74,22 @@ class RegistrarTest {
         assertFalse(comp127.getRoster().contains(sally));
     }
 
+    @Test
+    void clientsCannotModifyCourses(){
+        assertThrows(UnsupportedOperationException.class, () -> {
+            sally.getCourses().add(comp127);
+        });
+    }
+
+    @Test
+    void coursesCannotModifyClients(){
+        assertThrows(UnsupportedOperationException.class, () -> {
+            comp127.getRoster().add(sally);
+        });
+    }
+
+
+
     // ------ Post-test invariant check ------
     //
     // This is a bit persnickety for day-to-day testing, but these kinds of checks are appropriate
